@@ -1,0 +1,21 @@
+image:
+  repository: python
+  tag: 3.12-bookworm
+command: |
+  while true; do date; sleep 2; done
+shell: "/bin/bash"
+volumes:
+  - name: workspace
+    path: /workspace
+    size: 10Gi
+  - name: home
+    path: /root
+    size: 10Gi
+resources:
+  limits:
+    cpu: "16000m"
+    memory: "32000Mi"
+    # nvidia.com/gpu: 1
+  requests:
+    cpu: "100m"
+    memory: "100Mi"
