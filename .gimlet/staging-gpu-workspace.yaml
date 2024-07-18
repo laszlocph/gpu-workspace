@@ -4,6 +4,8 @@ namespace: default
 chart:
   name: https://github.com/gimlet-io/onechart.git?branch=simplified-schema&path=/charts/onechart/
 values:
+  command: |
+    while true; do date; sleep 2; done
   gitRepository: laszlocph/gpu-workspace
   gitSha: '{{ .SHA }}'
   image:
@@ -11,9 +13,11 @@ values:
     registry: ""
     repository: python
     strategy: static
-  command: |
-    while true; do date; sleep 2; done
-  shell: "/bin/bash"
   resources:
     ignoreLimits: true
-
+  shell: /bin/bash
+  volumes:
+    - name: root
+      path: /root
+      pvcAnnotations: {}
+      size: 10Gi
