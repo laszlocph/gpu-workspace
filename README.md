@@ -1,5 +1,5 @@
 # gpu-workspace
 
 ```
-gimlet sync src gpu-workspace-5fd9b6ddc4-mk88q:/  
+gimlet sync src gpu-workspace-6cc74586fb-pdmjp:/workspace
 ```
