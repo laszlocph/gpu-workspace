@@ -11,14 +11,9 @@ values:
     registry: ""
     repository: python
     strategy: static
-    tag: 3.12-bookworm
-  imagePullSecrets:
-    - '{{ .APP }}--pullsecret'
-  ingress:
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-      kubernetes.io/ingress.class: nginx
-    host: laszlocph-gpu-workspace.staging.turbopizza.net
-    tlsEnabled: true
+  command: |
+    while true; do date; sleep 2; done
+  shell: "/bin/bash"
   resources:
     ignoreLimits: true
+
