@@ -1,0 +1,24 @@
+app: gpu-workspace
+env: staging
+namespace: default
+chart:
+  name: https://github.com/gimlet-io/onechart.git?branch=simplified-schema&path=/charts/onechart/
+values:
+  gitRepository: laszlocph/gpu-workspace
+  gitSha: '{{ .SHA }}'
+  image:
+    dockerfile: ""
+    registry: ""
+    repository: python
+    strategy: static
+    tag: 3.12-bookworm
+  imagePullSecrets:
+    - '{{ .APP }}--pullsecret'
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      kubernetes.io/ingress.class: nginx
+    host: laszlocph-gpu-workspace.staging.turbopizza.net
+    tlsEnabled: true
+  resources:
+    ignoreLimits: true
