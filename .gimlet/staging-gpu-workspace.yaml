@@ -9,10 +9,11 @@ values:
   gitRepository: laszlocph/gpu-workspace
   gitSha: '{{ .SHA }}'
   image:
-    dockerfile: ""
-    registry: ""
-    repository: python
-    strategy: static
+    dockerfile: Dockerfile
+    registry: containerizedRegistry
+    repository: 127.0.0.1:32447/{{ .APP }}
+    strategy: dockerfile
+    tag: '{{ .SHA }}'
   resources:
     ignoreLimits: true
   shell: /bin/bash
