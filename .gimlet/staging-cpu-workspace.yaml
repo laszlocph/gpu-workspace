@@ -16,3 +16,8 @@ values:
     tag: '{{ .SHA }}'
   resources:
     ignoreLimits: true
+  volumes:
+    - name: workspace
+      path: /workspace
+      pvcAnnotations: {}
+      size: 10Gi
