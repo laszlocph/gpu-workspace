@@ -4,15 +4,15 @@ namespace: default
 chart:
   name: https://github.com/gimlet-io/onechart.git?branch=simplified-schema&path=/charts/onechart/
 values:
+  command: |
+    while true; do date; sleep 2; done
   gitRepository: laszlocph/gpu-workspace
   gitSha: '{{ .SHA }}'
   image:
-    dockerfile: ""
-    registry: ""
-    repository: python
-    strategy: static
-    tag: 3.12-bookworm
-  command: |
-    while true; do date; sleep 2; done
+    dockerfile: Dockerfile
+    registry: containerizedRegistry
+    repository: 127.0.0.1:32447/{{ .APP }}
+    strategy: dockerfile
+    tag: '{{ .SHA }}'
   resources:
     ignoreLimits: true
